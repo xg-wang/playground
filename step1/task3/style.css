@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding: 20px;
+    min-width: 680px;
+}
+
+.wrapper {
+    overflow: auto;
+    padding: 20px;
+    border: 1px solid #999;
+    background-color: #eee;
+}
+
+.intro {
+    float: left;
+    width: 100%;
+}
+
+.intro article {
+    margin: 0 140px 0 220px;
+    padding: 20px;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+p {
+    margin: 14px 0;
+}
+
+.team {
+    float: left;
+    width: 160px;
+    margin-left: -100%;
+    padding: 20px;
+    border: 1px solid #999;
+    background-color: #fff;
+}
+
+.team h1 {
+    float: right;
+    font-size: 14px;
+}
+
+.stuff {
+    float: left;
+    width: 80px;
+    margin-left: -122px;
+    padding: 20px 20px 0;
+    background-color: #fff;
+    border: 1px solid #999;
+}
+
+.stuff img {
+    margin-bottom: 20px;
+}
