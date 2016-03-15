@@ -15,12 +15,12 @@ body {
     background-color: #eee;
 }
 
-.intro {
-    float: left;
+.intro-mid {
+    /*float: left;*/
     width: 100%;
 }
 
-.intro article {
+.intro-mid article {
     margin: 0 140px 0 220px;
     padding: 20px;
     border: 1px solid #999;
@@ -31,29 +31,29 @@ p {
     margin: 14px 0;
 }
 
-.team {
+.team-left {
     float: left;
     width: 160px;
-    margin-left: -100%;
+    /*margin-left: -100%;*/
     padding: 20px;
     border: 1px solid #999;
     background-color: #fff;
 }
 
-.team h1 {
+.team-left h1 {
     float: right;
     font-size: 14px;
 }
 
-.stuff {
-    float: left;
+.stuff-right {
+    float: right;
     width: 80px;
-    margin-left: -122px;
+    /*margin-left: -122px;*/
     padding: 20px 20px 0;
     background-color: #fff;
     border: 1px solid #999;
 }
 
-.stuff img {
+.stuff-right img {
     margin-bottom: 20px;
 }
