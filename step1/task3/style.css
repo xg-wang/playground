@@ -5,55 +5,58 @@
 
 body {
     padding: 20px;
+    margin: 0px;
     min-width: 680px;
 }
 
 .wrapper {
-    overflow: auto;
+    /*overflow: auto;*/
     padding: 20px;
     border: 1px solid #999;
     background-color: #eee;
 }
 
 .intro-mid {
-    /*float: left;*/
-    width: 100%;
-}
-
-.intro-mid article {
-    margin: 0 140px 0 220px;
     padding: 20px;
+    margin-left: 260px;
+    margin-right: 180px;
     border: 1px solid #999;
     background-color: #fff;
-}
-
-p {
-    margin: 14px 0;
 }
 
 .team-left {
     float: left;
-    width: 160px;
-    /*margin-left: -100%;*/
+    width: 200px;
     padding: 20px;
     border: 1px solid #999;
     background-color: #fff;
 }
-
+.team-logo {
+    width: 80px;
+    height: 80px;
+    float: left;
+}
 .team-left h1 {
-    float: right;
+    float: left;
+    padding-left: 10px;
     font-size: 14px;
 }
 
 .stuff-right {
     float: right;
-    width: 80px;
-    /*margin-left: -122px;*/
-    padding: 20px 20px 0;
+    width: 120px;
+    padding: 20px;
     background-color: #fff;
     border: 1px solid #999;
 }
+.stuff-logo {
+    width: 80px;
+    height: 80px;
+    margin: 10px 0;
+    border: 1px solid #999;
+}
 
-.stuff-right img {
-    margin-bottom: 20px;
+.clearfix {
+    /*overflow: auto;*/
+    clear: both;
 }
