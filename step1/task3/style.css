@@ -14,15 +14,17 @@ body {
     padding: 20px;
     border: 1px solid #999;
     background-color: #eee;
-    *zoom: 1;
 }
-.wrapper:before,
-.wrapper:after {
+.group:before,
+.group:after {
     content: "";
     display: table;
 }
-.wrapper:after {
+.group:after {
     clear: both;
+}
+.group {
+    *zoom: 1;
 }
 
 .intro-mid {
