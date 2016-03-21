@@ -10,10 +10,19 @@ body {
 }
 
 .wrapper {
-    overflow: hidden;
+    /*overflow: hidden;*/
     padding: 20px;
     border: 1px solid #999;
     background-color: #eee;
+    *zoom: 1;
+}
+.wrapper:before,
+.wrapper:after {
+    content: "";
+    display: table;
+}
+.wrapper:after {
+    clear: both;
 }
 
 .intro-mid {
