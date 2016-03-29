@@ -110,9 +110,13 @@ section.banner {
   height: 63px;
   line-height: 63px;
   text-align: center;
-  background-color: #FD323D;
+  background-color: #E53C3C;
   color: #fff;
   font-size: 2rem;
+}
+.inner .enjoy:hover{
+    background: #E31212;
+    border-radius: 3px;
 }
 section.list {
   margin: 40px 0 50px 0;
@@ -202,13 +206,16 @@ section.city {
   padding-right: 20px;
   padding-left: 15px;
   color: #aba6a5;
+  cursor: pointer;
 }
 .city .form select option {
   text-indent: 10px;
+  display: list-item;
 }
 .city .form select option:hover {
   background-color: red;
   color: #fff;
+  cursor: pointer;
 }
 .sub-btn {
   background-color: #bf4f49;
@@ -313,7 +320,7 @@ section.action .picture {
   padding-left: 20px;
   font-family: "Helvetica Neue", Helvetica, serif;
   font-size: 22px;
-  color: #FD323D;
+  color: #E53C3C;
 }
 .slide-desc span:before {
   display: block;
@@ -340,14 +347,14 @@ section.action .picture {
   font-size: 15px;
   padding: 8px 27px;
   margin-top: 50px;
-  border: 1px solid #FD323D;
-  color: #FD323D;
+  border: 1px solid #E53C3C;
+  color: #E53C3C;
 }
 .colum-3 a:hover,
 .slide-desc a:hover {
-  background-color: #FD323D;
+  background-color: #E53C3C;
   color: #fff;
-  border-color: #FD323D;
+  border-color: #E53C3C;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s;
@@ -395,7 +402,7 @@ section.action .picture {
   height: 100%;
 }
 .colum-left {
-  background-color: #FD323D;
+  background-color: #E53C3C;
   position: relative;
   color: #fff;
 }
@@ -428,8 +435,8 @@ section.action .picture {
   font-size: 18px;
   padding: 10px 30px;
   margin-top: 20px;
-  border: 1px solid #FD323D;
-  color: #FD323D;
+  border: 1px solid #E53C3C;
+  color: #E53C3C;
 }
 .colum-3.colum-left a {
   color: #FFF;
@@ -437,8 +444,8 @@ section.action .picture {
 }
 .colum-3.colum-left a:hover {
   background-color: #FFF;
-  color: #FD323D;
-  border-color: #FD323D;
+  color: #E53C3C;
+  border-color: #E53C3C;
   -webkit-transition: all .3s;
   -o-transition: all .3s;
   transition: all .3s;
@@ -458,7 +465,7 @@ section.join .join-desc h1:after {
   margin: 10px auto;
   width: 31px;
   height: 2px;
-  background-color: #FD323D;
+  background-color: #E53C3C;
 }
 section.join .join-desc p {
   margin-bottom: 100px;
