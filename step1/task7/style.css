@@ -5,11 +5,15 @@
 body {
   font-family: "Microsoft YaHei", "Helvetica Neue", Helvetica, sans-serif;
 }
-html, body, header, .container {
+html,
+body,
+header,
+.container {
   min-width: 1200px;
   width: 100%;
 }
-input, button {
+input,
+button {
   border: 0;
 }
 button {
@@ -34,7 +38,8 @@ a:active {
   color: #333;
   text-decoration: none
 }
-ul, li {
+ul,
+li {
   list-style: none;
 }
 header ul li {
@@ -362,7 +367,8 @@ section.action .picture {
   width: 100%;
   height: 567px;
 }
-.slide-inner, .colum-inner {
+.slide-inner,
+.colum-inner {
   position: absolute;
   top: 0;
   left: 0;
@@ -444,7 +450,9 @@ section.action .picture {
   -o-transition: all .3s;
   transition: all .3s;
 }
-.slides, .slide, .time {
+.slides,
+.slide,
+.time {
   height: 567px;
   position: relative;
 }
@@ -594,7 +602,8 @@ section.join .register {
 .form-list:nth-child(2n) {
   float: right;
 }
-input, textarea {
+input,
+textarea {
   outline: 0;
   color: #000;
 }
