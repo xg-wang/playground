@@ -192,7 +192,7 @@ section.city {
 .city .options{
     height: 36px;
 }
-.city input[type="radio"]{
+.city input[type="checkbox"]{
     width: 240px;
     height: 36px;
     margin: 0 10px;
@@ -236,30 +236,35 @@ section.city {
     left: -2px;
     top: 34px;
 }
-.city input[type="radio"]:nth-of-type(1):checked~.options .select,
-.city input[type="radio"]:nth-of-type(2):checked~.options .select,
-.city input[type="radio"]:nth-of-type(3):checked~.options .select{
+.city input[type="checkbox"]:nth-of-type(1).options .select-1 .option,
+.city input[type="checkbox"]:nth-of-type(2).options .select-2 .option,
+.city input[type="checkbox"]:nth-of-type(3).options .select-3 .option{
+    display: none;
+}
+.city input[type="checkbox"]:nth-of-type(1):checked~.options .select,
+.city input[type="checkbox"]:nth-of-type(2):checked~.options .select,
+.city input[type="checkbox"]:nth-of-type(3):checked~.options .select{
     top: -1px;
 }
-.city input[type="radio"]:nth-of-type(1):checked~.options .select-1{
+.city input[type="checkbox"]:nth-of-type(1):checked~.options .select-1{
     border: 2px solid #AE7271;
     border-bottom-width: 0;
 }
-.city input[type="radio"]:nth-of-type(1):checked~.options .select-1 .option{
+.city input[type="checkbox"]:nth-of-type(1):checked~.options .select-1 .option{
     display: block;
 }
-.city input[type="radio"]:nth-of-type(2):checked~.options .select-2{
+.city input[type="checkbox"]:nth-of-type(2):checked~.options .select-2{
     border: 2px solid #AE7271;
     border-bottom-width: 0;
 }
-.city input[type="radio"]:nth-of-type(2):checked~.options .select-2 .option{
+.city input[type="checkbox"]:nth-of-type(2):checked~.options .select-2 .option{
     display: block;
 }
-.city input[type="radio"]:nth-of-type(3):checked~.options .select-3{
+.city input[type="checkbox"]:nth-of-type(3):checked~.options .select-3{
     border: 2px solid #AE7271;
     border-bottom-width: 0;
 }
-.city input[type="radio"]:nth-of-type(3):checked~.options .select-3 .option{
+.city input[type="checkbox"]:nth-of-type(3):checked~.options .select-3 .option{
     display: block;
 }
 .city .options .select .option ul{
