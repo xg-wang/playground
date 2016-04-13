@@ -25,7 +25,12 @@ function addEventHandler(ele, event, hanlder) {
         ele["on" + event] = hanlder;
     }
 }
-
+/*
+ * 获取随机颜色
+ */
+function getRandomColor() {
+    return "#" + ("00000" + ((Math.random() * 16777215 + 0.5) >> 0).toString(16)).slice(-6);
+}
 // 以下两个函数用于随机模拟生成测试数据
 function getDateStr(dat) {
     var y = dat.getFullYear();
@@ -101,7 +106,14 @@ function citySelectChange() {
  * 初始化日、周、月的radio事件，当点击时，调用函数graTimeChange
  */
 function initGraTimeForm() {
-
+    var radio = document.getElementsByName('gra-time');
+    for (var i = 0; i < radio.length; i++) {
+        (function (m) {
+            addEventHandler(radio[m], 'click', function () {
+                graTimeChange(radio[m])
+            })
+        })(i);
+    }
 }
 
 /**
@@ -109,9 +121,15 @@ function initGraTimeForm() {
  */
 function initCitySelector() {
     // 读取aqiSourceData中的城市，然后设置id为city-select的下拉列表中的选项
-
+    var citySelect = document.getElementById("city-select");
+    var innerHTML = "";
+    for (var city in aqiSourceData) {
+        innerHTML += "<option>" + city + "</option>";
+    };
+    citySelect.innerHTML = innerHTML;
+    pageState.nowSelectCity = citySelect.value;
     // 给select设置事件，当选项发生变化时调用函数citySelectChange
-
+    addEventHandler(citySelect, "change", citySelectChange);
 }
 
 /**
@@ -119,7 +137,23 @@ function initCitySelector() {
  */
 function initAqiChartData() {
     // 将原始的源数据处理成图表需要的数据格式
+    // ret values
+    var week = {}, month = {};
+
+    for (var city in aqiSourceData) {
+        var cityweek = {}, citymonth = {};
+
+
+
+        week[city] = cityweek;
+        month[city] = citymonth;
+    }
+
     // 处理好的数据存到 chartData 中
+    chartData.day = aqiSourceData;
+    chartData.week = week;
+    chartData.month = month;
+    renderChart();
 }
 
 /**
