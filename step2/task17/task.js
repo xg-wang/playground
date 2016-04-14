@@ -73,11 +73,43 @@ var pageState = {
     nowGraTime: "day"
 }
 
+// 计算每个bar的宽度，空格宽度，起始偏移
+function getWidth(width, num) {
+    var posObj = {};
+    posObj.width = Math.floor(width / (num*2));
+    posObj.span = Math.floor(width / num);
+    posObj.offset = (width - posObj.span * (num - 1) - posObj.width) / 2;
+    return posObj;
+}
+function getTitle() {
+    switch (pageState.nowGraTime) {
+        case "day":
+            return "每日";
+        case "week":
+            return "周平均";
+        case "month":
+            return "月平均";
+    }
+}
+function buildRowHTML(height, width, left) {
+    return "<div class='aqi-bar " + pageState.nowGraTime + "' style='height:" + height + "px; width: " + width +"px; left:" + left + "px; background-color:" + getRandomColor() + "'></div>"
+}
 /**
  * 渲染图表
  */
 function renderChart() {
-
+    var wrapper = document.getElementById("aqi-chart-wrap");
+    var data = chartData[pageState.nowGraTime][pageState.nowSelectCity];
+    var width = wrapper.clientWidth;
+    var num = Object.keys(data).length;
+    var posObj = getWidth(width, num);
+    var innerHTML = "<div class='title'>" + pageState.nowSelectCity + "市"+ getTitle() +"空气质量报告</div>";
+    var i = 0;
+    for (var key in data) {
+        var left = posObj.span * (i++) + posObj.offset;
+        innerHTML += buildRowHTML(data[key], posObj.width, left);
+    }
+    wrapper.innerHTML = innerHTML;
 }
 
 /**
@@ -114,6 +146,16 @@ function initGraTimeForm() {
             })
         })(i);
     }
+    // display values
+    // TODO!
+    addEventHandler(document, 'mouseover', function(event){
+        var ele = event.target;
+        ele.className += " show";
+    });
+    addEventHandler(document, 'mouseout', function(event){
+        var ele = event.target;
+        ele.className = ele.className.replace(/show/, "");
+    });
 }
 
 /**
@@ -142,8 +184,7 @@ function initAqiChartData() {
 
     for (var city in aqiSourceData) {
         var cityweek = {}, citymonth = {};
-
-
+        var cityAqiData = aqiSourceData[city];
 
         week[city] = cityweek;
         month[city] = citymonth;

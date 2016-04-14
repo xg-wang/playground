@@ -1,0 +1,6 @@
+.aqi-bar {
+    position: absolute;
+    bottom: 0;
+    cursor: pointer;
+    animation: heightAnim .5s ease-in-out;
+}
