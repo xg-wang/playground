@@ -117,10 +117,13 @@ function renderChart() {
  */
 function graTimeChange(radio) {
     // 确定是否选项发生了变化
-
-    // 设置对应数据
-
-    // 调用图表渲染函数
+    var value = radio.value;
+    if (value !== pageState.nowGraTime) {
+        // 设置对应数据
+        pageState.nowGraTime = value;
+        // 调用图表渲染函数
+        renderChart();
+    }
 }
 
 /**
@@ -128,10 +131,13 @@ function graTimeChange(radio) {
  */
 function citySelectChange() {
     // 确定是否选项发生了变化
-
-    // 设置对应数据
-
-    // 调用图表渲染函数
+    var value = this.value;
+    if (value !== pageState.nowSelectCity) {
+        // 设置对应数据
+        pageState.nowSelectCity = value;
+        // 调用图表渲染函数
+        renderChart();
+    }
 }
 
 /**
