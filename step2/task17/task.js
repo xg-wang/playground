@@ -147,14 +147,13 @@ function initGraTimeForm() {
         })(i);
     }
     // display values
-    // TODO!
     addEventHandler(document, 'mouseover', function(event){
         var ele = event.target;
         ele.className += " show";
     });
     addEventHandler(document, 'mouseout', function(event){
         var ele = event.target;
-        ele.className = ele.className.replace(/show/, "");
+        ele.className = ele.className.replace(/ show/, "");
     });
 }
 
@@ -185,7 +184,33 @@ function initAqiChartData() {
     for (var city in aqiSourceData) {
         var cityweek = {}, citymonth = {};
         var cityAqiData = aqiSourceData[city];
-
+        var dates = Object.getOwnPropertyNames(cityAqiData);
+        var weekAqi = 0;
+        var weekdays = 0;
+        var monthAqi = 0;
+        var monthdays = 0;
+        var currentMonth = 1;
+        for (var i = 0; i < dates.length; i++) {
+            var today = cityAqiData[dates[i]];
+            if (today) {
+                weekdays += 1;
+                monthdays += 1;
+            }
+            weekAqi += today;
+            if ((i + 1) % 7 == 0 || i == dates.length - 1) {
+                cityweek["第" + Math.floor((i + 1) / 7) + "周"] = weekAqi / weekdays;
+                weekAqi = 0;
+                weekdays = 0;
+            }
+            if (Number(dates[i].slice(5, 7)) !== currentMonth || i == dates.length - 1) {
+                citymonth["第" + currentMonth + "月"] = monthAqi / monthdays;
+                currentMonth++;
+                monthdays = 0;
+                monthAqi = 0;
+            } else {
+                monthAqi += today;
+            }
+        }
         week[city] = cityweek;
         month[city] = citymonth;
     }
