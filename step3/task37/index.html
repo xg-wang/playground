@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>ife task 37: popup </title>
+    <style type="text/css">
+        button{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            border: 1px solid;
+        }
+    </style>
+    <!-- <script src="js/jquery-1.12.3.min.js"></script> -->
+    <script src="js/popup.js"></script>
+</head>
+<body>
+    <button id="click">click me</button>
+
+    <script type="text/javascript">
+        document.getElementById("click").onclick = function() {
+            var config = {
+                width: '300px',
+                height: '200px',
+                title_height: '28px',
+                title: '你不是别人-博尔赫斯',
+                content: "你怯懦地祈助的<br>" +
+                         "别人的著作救不了你<br>" +
+                         "你不是别人，此刻你正身处<br>" +
+                         "自己的脚步编织起的迷宫的中心之地<br>" +
+                         "耶稣或者苏格拉底<br>" +
+                         "所经历的磨难救不了你<br>" +
+                         "就连日暮时分在花园里圆寂的<br>" +
+                         "佛法无边的悉达多也于你无益<br>" +
+                         "你手写的文字，口出的言辞<br>" +
+                         "都像尘埃一般一文不值<br>" +
+                         "命运之神没有怜悯之心<br>" +
+                         "上帝的长夜没有尽期<br>" +
+                         "你的肉体只是时光，不停流逝的时光<br>" +
+                         "你不过是每一个孤独的瞬息",
+                ismovable: true,//是否可移动
+                isresizable: true,//是否可以改变大小
+            }
+            var popup = new Widgets.popup("POPUP", config);
+        }
+    </script>
+</body>
+</html>
