@@ -1,18 +1,4 @@
 /**
- * addEventHandler方法
- * 跨浏览器实现事件绑定
- */
-function addEventHandler(ele, event, hanlder) {
-	if (ele.addEventListener) {
-		ele.addEventListener(event, hanlder, false);
-	} else if (ele.attachEvent) {
-		ele.attachEvent("on"+event, hanlder);
-	} else  {
-		ele["on" + event] = hanlder;
-	}
-}
-
-/**
  * Widgets Module containing all the widget object available.
  */
 var Widgets = (function() {
@@ -165,6 +151,9 @@ Widgets.popup.prototype = {
     ms.width = "100%";
     ms.background = "gray";
     ms.opacity = "0.3";
+    // set click event
+    self = this;
+    mask.onclick = self.delete;
 	},
 
 	setEvent: function(){
