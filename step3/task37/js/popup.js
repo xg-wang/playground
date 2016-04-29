@@ -1,3 +1,27 @@
+// var Utils = (function(){
+// 	setDrag = function(event) {
+//     var disX, disY;
+//     var popup = event.target.parentNode;
+//     console.log(popup);
+//     disX = event.clientX - popup.offsetLeft;
+//     disY = event.clientY - popup.offsetTop;
+//     document.onmousemove = function(event) {
+//       event = event || window.event;
+//       popup.style.left = event.clientX + popup.width - disX + "px";
+//       popup.style.top = event.clientY + popup.height - disY + "px";
+//     };
+//     document.onmouseup = function() {
+//       document.onmousedown = null;
+//       document.onmousemove = null;
+//     }
+// 	}
+
+// 	return {
+// 		setDrag: setDrag
+// 	}
+
+// }());
+
 /**
  * Widgets Module containing all the widget object available.
  */
@@ -83,6 +107,11 @@ Widgets.popup.prototype = {
 		ts.borderBottom = "2px groove gray"
 		ts.fontFamily = "bold";
 		ts.fontSize = "14pt"
+		// set drag
+		if (this.config.ismovable) {
+			// NOT IMPL
+			title.addEventListener("mousedown", Utils.setDrag, false);
+		}
 	},
 
 	setContent: function(popup){
@@ -156,11 +185,6 @@ Widgets.popup.prototype = {
     mask.onclick = self.delete;
 	},
 
-	setEvent: function(){
-		// drag
-		// resize
-	},
-
 	// Delete the popup widget if exists
 	delete: function(id){
 		var id = id || this.id;
@@ -175,3 +199,4 @@ Widgets.popup.prototype = {
 		}
 	}
 }
+
