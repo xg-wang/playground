@@ -1,26 +1,27 @@
-// var Utils = (function(){
-// 	setDrag = function(event) {
-//     var disX, disY;
-//     var popup = event.target.parentNode;
-//     console.log(popup);
-//     disX = event.clientX - popup.offsetLeft;
-//     disY = event.clientY - popup.offsetTop;
-//     document.onmousemove = function(event) {
-//       event = event || window.event;
-//       popup.style.left = event.clientX + popup.width - disX + "px";
-//       popup.style.top = event.clientY + popup.height - disY + "px";
-//     };
-//     document.onmouseup = function() {
-//       document.onmousedown = null;
-//       document.onmousemove = null;
-//     }
-// 	}
+// NOT WORKING
+var Utils = (function(){
+	setDrag = function(event) {
+    var disX, disY;
+    var popup = event.target.parentNode;
+    console.log(popup);
+    disX = event.clientX - popup.offsetLeft;
+    disY = event.clientY - popup.offsetTop;
+    document.onmousemove = function(event) {
+      event = event || window.event;
+      popup.style.left = event.clientX + popup.width - disX + "px";
+      popup.style.top = event.clientY + popup.height - disY + "px";
+    };
+    document.onmouseup = function() {
+      document.onmousedown = null;
+      document.onmousemove = null;
+    }
+	}
 
-// 	return {
-// 		setDrag: setDrag
-// 	}
+	return {
+		setDrag: setDrag
+	}
 
-// }());
+}());
 
 /**
  * Widgets Module containing all the widget object available.
@@ -36,7 +37,8 @@ var Widgets = (function() {
 		if(this instanceof popup)
 		{
 			this.id = id || "POPUP";
-			this.config = config || this.default_config;
+			// this.config = config || this.default_config;
+			this.config = $.extend( {}, this.default_config, config );
 			this.init();
 		}else{
 			return new popup(id, config);
