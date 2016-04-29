@@ -48,6 +48,8 @@ Widgets.popup.prototype = {
         content: 'Contents',
         ismovable: true,//是否可移动
         isresizable: true,//是否可以改变大小
+        confirmCallback: function(){alert('confirm')},
+        cancelCallback: function(){alert('cancel')},
     },
 
     // Create a new popup widget
@@ -93,7 +95,8 @@ Widgets.popup.prototype = {
         ts.padding = "3px 5px 2px 5px";
         ts.background = "#aaa";
         ts.borderBottom = "2px groove gray"
-        ts.font = "bold 14pt"
+        ts.fontFamily = "bold";
+        ts.fontSize = "14pt"
     },
 
     setContent: function(popup){
@@ -104,15 +107,43 @@ Widgets.popup.prototype = {
         // set style
         cs = content.style;
         cs.position = "relative";
-        cs.height = "155px";
+        cs.height = "125px";
         cs.padding = "5px";
         cs.margin = "0px";
         cs.overflow = "auto";
         cs.background = "#fff";
+        cs.fontSize = "12px";
     },
 
     setButton: function(popup){
-        var confirmBtn = document.createElement("div");
+        var btnWrapper = document.createElement("div");
+        btnWrapper.className = "btn-wrapper";
+        // set wrapper style
+        bws = btnWrapper.style;
+        bws.position = "absolute";
+        bws.right = "10px";
+        bws.bottom = "0px";
+        bws.height = "30px";
+        popup.appendChild(btnWrapper);
+        var confirmBtn = document.createElement("button");
+        confirmBtn.innerHTML = "确认";
+        setBtnStyle(confirmBtn);
+        confirmBtn.onclick = this.config.confirmCallback;
+        btnWrapper.appendChild(confirmBtn);
+        var cancelBtn = document.createElement("button");
+        cancelBtn.innerHTML = "取消";
+        setBtnStyle(cancelBtn);
+        cancelBtn.onclick = this.config.cancelCallback;
+        btnWrapper.appendChild(cancelBtn);
+
+        function setBtnStyle(btn, callback){
+            bs = btn.style;
+            bs.background = "gray";
+            bs.padding = "5px 10px";
+            bs.marginRight = "5px";
+            bs.color = "white";
+            bs.cursor = "pointer";
+        }
     },
 
     // mask that covers the rest area
