@@ -116,6 +116,7 @@ Widgets.popup.prototype = {
     },
 
     setButton: function(popup){
+        self = this;
         var btnWrapper = document.createElement("div");
         btnWrapper.className = "btn-wrapper";
         // set wrapper style
@@ -128,12 +129,18 @@ Widgets.popup.prototype = {
         var confirmBtn = document.createElement("button");
         confirmBtn.innerHTML = "确认";
         setBtnStyle(confirmBtn);
-        confirmBtn.onclick = this.config.confirmCallback;
+        confirmBtn.onclick = function(){
+            self.config.confirmCallback();
+            self.delete();
+        }
         btnWrapper.appendChild(confirmBtn);
         var cancelBtn = document.createElement("button");
         cancelBtn.innerHTML = "取消";
         setBtnStyle(cancelBtn);
-        cancelBtn.onclick = this.config.cancelCallback;
+        cancelBtn.onclick = function(){
+            self.config.cancelCallback();
+            self.delete();
+        }
         btnWrapper.appendChild(cancelBtn);
 
         function setBtnStyle(btn, callback){

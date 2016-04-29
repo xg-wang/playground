@@ -43,6 +43,8 @@
                          "你不过是每一个孤独的瞬息",
                 ismovable: true,//是否可移动
                 isresizable: true,//是否可以改变大小
+                confirmCallback: function(){alert('confirm')},
+                cancelCallback: function(){alert('cancel')},
             }
             var popup = new Widgets.popup("POPUP", config);
         }
