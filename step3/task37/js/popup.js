@@ -139,7 +139,7 @@ Widgets.popup.prototype = {
 		setBtnStyle(cancelBtn);
 		cancelBtn.onclick = function(){
 			self.config.cancelCallback();
-			.delete();
+			self.delete();
 		}
 		btnWrapper.appendChild(cancelBtn);
 
@@ -155,12 +155,19 @@ Widgets.popup.prototype = {
 
 	// mask that covers the rest area
 	setMask: function(){
-
+    mask = document.createElement("div");
+    mask.id = this.id + "-mask";
+    document.body.insertBefore(mask, document.body.firstChild);
+    // set style
+    ms = mask.style;
+    ms.position = "fixed";
+    ms.height = "100%";
+    ms.width = "100%";
+    ms.background = "gray";
+    ms.opacity = "0.3";
 	},
 
 	setEvent: function(){
-		// close button
-
 		// drag
 		// resize
 	},
@@ -171,6 +178,8 @@ Widgets.popup.prototype = {
 		var popup = document.getElementById(id);
 		if (popup) {
 			document.body.removeChild(popup);
+      var mask = document.getElementById(id + "-mask");
+      document.body.removeChild(mask);
 			return true;
 		} else {
 			return false;
