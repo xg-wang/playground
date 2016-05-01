@@ -3,7 +3,7 @@
  */
 var Widgets = (function() {
 
-  var sortTable = function(id, headers, data, getSortFns) {
+  var sortTable = function(id, headers, data, getLargerFunc) {
     if (this instanceof sortTable) {
       for (var p in data) {
         if (data[p].length != headers.length - 1) {
@@ -16,10 +16,10 @@ var Widgets = (function() {
       this.id = id || 'SORTTABLE';
       this.headers = headers || ['h1', 'h2'];
       this.data = data || [1, 2];
-      this.getSortFns = getSortFns;
+      this.getLargerFunc = getLargerFunc;
       this.init();
     } else {
-      return new sortTable(id, headers, data, getSortFns);
+      return new sortTable(id, headers, data, getLargerFunc);
     }
   }
 
@@ -58,7 +58,60 @@ Widgets.sortTable.prototype = {
       }).join('');
       innerHTML += '</tr>';
     }
-
     this.dom.innerHTML = innerHTML;
+    this.setSort();
+  },
+
+  setSort: function() {
+    var self = this;
+
+    for (var i = 0; i < this.headers.length; i++) {
+      var key = this.headers[i];
+      var larger = this.getLargerFunc(key);
+      if (larger) {
+        var arrows = addArrows(i);
+        this.dom.firstChild.firstChild.children[i].appendChild(arrows);
+      }
+    }
+
+    function addArrows(i) {
+      // structure
+      var wrapper = document.createElement('div');
+      var up = document.createElement('div');
+      var down = document.createElement('div');
+      wrapper.appendChild(up);
+      wrapper.appendChild(down);
+      // style
+      wrapper.style.width = '8px';
+      wrapper.style.height ='20px';
+      wrapper.style.display = 'inline';
+      us = up.style;
+      ds = down.style;
+      us.display = ds.display = 'inline-block';
+      us.width = ds.width = '0px';
+      us.height = ds.height = '0px';
+      us.borderLeft = ds.borderLeft
+                    = us.borderRight
+                    = ds.borderRight
+                    = '4px solid transparent';
+      us.borderBottom = '8px solid gray';
+      ds.borderTop = '8px solid gray';
+
+      // listener
+      larger = self.getLargerFunc(self.headers[i]);
+      up.onclick = function() {
+        self.currOrder.sort(function(l, r) {
+          return -larger(self.data[l][i - 1], self.data[r][i - 1]);
+        });
+        self.render();
+      }
+      down.onclick = function() {
+        self.currOrder.sort(function(l, r) {
+          return larger(self.data[l][i - 1], self.data[r][i - 1]);
+        });
+        self.render();
+      }
+      return wrapper;
+    }
   }
 }

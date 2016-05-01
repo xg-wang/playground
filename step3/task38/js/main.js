@@ -18,13 +18,13 @@ var scoreData = {
 
 var headers = ['姓名', '语文', '数学', '英语', '总分'];
 
-var getSortFns = function(name) {
-    if (name == headers[0]) {
+var getLargerFunc = function(key) {
+    if (key == headers[0]) {
         return;
     }
-    return function(d1, d2) {
-        return d2 - d1;
+    return function(l, r) {
+        return r - l;
     }
 }
 
-var table = new Widgets.sortTable('demoTable', headers, scoreData, getSortFns);
+var table = new Widgets.sortTable('demoTable', headers, scoreData, getLargerFunc);
