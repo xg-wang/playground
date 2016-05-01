@@ -16,10 +16,10 @@ var scoreData = {
     '小亮': randomScore(3),
 }
 
-var names = ['姓名', '语文', '数学', '英语', '总分'];
+var headers = ['姓名', '语文', '数学', '英语', '总分'];
 
 var getSortFns = function(name) {
-    if (name == names[0]) {
+    if (name == headers[0]) {
         return;
     }
     return function(d1, d2) {
@@ -27,4 +27,4 @@ var getSortFns = function(name) {
     }
 }
 
-var table = new Widgets.sortTable('demoTable', names, scoreData, getSortFns);
+var table = new Widgets.sortTable('demoTable', headers, scoreData, getSortFns);
