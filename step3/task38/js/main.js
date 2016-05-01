@@ -27,4 +27,4 @@ var getSortFns = function(name) {
     }
 }
 
-var table = new SortableTable('demoTable', names, scoreData, getSortFns);
+var table = new Widgets.sortTable('demoTable', names, scoreData, getSortFns);
