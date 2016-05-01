@@ -40,7 +40,7 @@ var Widgets = (function() {
 			// this.config = config || this.default_config;
 			this.config = $.extend( {}, this.default_config, config );
 			this.init();
-		}else{
+		} else {
 			return new popup(id, config);
 		}
 	}
