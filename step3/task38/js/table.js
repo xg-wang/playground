@@ -46,7 +46,7 @@ Widgets.sortTable.prototype = {
     var innerHTML = '';
     innerHTML += '<tr>';
     innerHTML += this.headers.map(function(item) {
-      return '<th>' + item + '</th>';
+      return '<th style="position: relative; padding-right: 16px">' + item + '</th>';
     }).join('');
     innerHTML += '</tr>';
 
@@ -84,10 +84,16 @@ Widgets.sortTable.prototype = {
       // style
       wrapper.style.width = '8px';
       wrapper.style.height ='20px';
-      wrapper.style.display = 'inline';
+      wrapper.style.display = 'block';
+      wrapper.style.position = 'absolute';
+      wrapper.style.top = '2px';
+      wrapper.style.right = '4px';
       us = up.style;
       ds = down.style;
-      us.display = ds.display = 'inline-block';
+      // us.display = ds.display = 'inline-block';
+      us.position = ds.position = 'absolute';
+      us.top = '0px';
+      ds.top = '12px';
       us.width = ds.width = '0px';
       us.height = ds.height = '0px';
       us.borderLeft = ds.borderLeft
