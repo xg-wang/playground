@@ -147,7 +147,17 @@ var Widgets = (function() {
     self = this;
     table = this.dom;
     headElement = table.firstChild.firstChild;
-    // set table body width if not explicitly set, in case of shrinking
+    // clone a fixed fake head
+    var fixedHeadElement = headElement.cloneNode(true);
+    fixedHeadElement.style.display = 'none';
+    fixedHeadElement.style.position = 'fixed';
+    fixedHeadElement.style.top = '0px';
+    fixedHeadElement.style.display = 'none';
+    fixedHeadElement.style.zIndex = '9999';
+    if (!fixedHeadElement.style.background) {
+      fixedHeadElement.style.background = 'white';
+    }
+    headElement.parentNode.insertBefore(fixedHeadElement, headElement);
     
     hs = headElement.style;
     addEventHandler(window, "scroll", scrollFixEvent);
@@ -155,14 +165,12 @@ var Widgets = (function() {
     function scrollFixEvent() {
       var scrollTop = document.documentElement.scrollTop
                       || document.body.scrollTop;
-      if (self.dom.offsetTop - scrollTop <= 0) {
-        hs.position = 'fixed';
-        hs.top = '0';
-        if (self.dom.offsetTop + parseInt(getComputedStyle(self.dom).height) - scrollTop <= 0) {
-          hs.position = 'absolute';
-        }
+      if (self.dom.offsetTop - scrollTop <= 0 &&
+          self.dom.offsetTop + parseInt(getComputedStyle(self.dom).height)
+                             - scrollTop >= 0) {
+        fixedHeadElement.style.display = 'table-row';
       } else {
-        hs.position = 'relative';
+        fixedHeadElement.style.display = 'none';
       }
     }
     
