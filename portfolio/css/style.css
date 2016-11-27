@@ -1,0 +1,74 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #666;
+	background: #888;
+	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 20px;
+}
+
+nav {
+	font-weight: bold;
+}
+nav a {
+	padding: 10px 10px;
+}
+
+section {
+	margin: 0 auto;
+	padding: 3rem 1.5rem;
+	max-width: 1024px;
+}
+.intro-sec {
+  padding-top: 8rem;
+	background-color: #aaa;
+	display: flex;
+	flex-flow: wrap;
+	justify-content: space-around;
+	align-items: center;
+	text-align: right;
+}
+.intro-sec > div {
+	max-width: 675px;
+	text-align: right;
+}
+.intro-sec img {
+	border-radius: 50%;
+	max-width: 80%;
+	width: 280px;
+	height: auto;
+	margin: 2em auto 1em;
+}
+@media screen and (max-width: 1200px) {
+	section {
+		padding: 2rem 1rem;
+	}
+	.intro-sec > div {
+		text-align: center;
+	}
+}
+
+.headline {
+	font-weight: bold;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.cards-container {
+  max-width: 20rem;
+}
+
+/* Find src URL and add in correct social media icon. */
+ul {
+  list-style-type: none;
+}
+.social li a:before {
+    font-family: 'Fontawesome';
+    -webkit-font-smoothing: antialiased;
+    content: '\f08e';
+}
+
+.social li a[href*="facebook.com"]::before { content: '\f09a'; }
+.social li a[href*="github.com"]::before { content: '\f09b'; }
+.social li a[href*="linkedin.com"]::before { content: '\f0e1'; }
+.social li a[href*="twitter.com"]::before { content: '\f099'; }
