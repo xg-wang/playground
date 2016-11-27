@@ -1,74 +1,142 @@
 body {
-	margin: 0;
-	padding: 0;
-	color: #666;
-	background: #888;
-	font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
-	font-size: 20px;
+    margin: 0;
+    padding: 0;
+    color: #666;
+    background: #888;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 20px;
 }
 
 nav {
-	font-weight: bold;
+    font-weight: bold;
 }
 nav a {
-	padding: 10px 10px;
+    padding: 1em 1em;
 }
 
 section {
-	margin: 0 auto;
-	padding: 3rem 1.5rem;
-	max-width: 1024px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem;
+    max-width: 1024px;
 }
+
 .intro-sec {
-  padding-top: 8rem;
-	background-color: #aaa;
-	display: flex;
-	flex-flow: wrap;
-	justify-content: space-around;
-	align-items: center;
-	text-align: right;
+    padding-top: 8rem;
+    background-color: #aaa;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+    align-items: center;
+    text-align: right;
 }
 .intro-sec > div {
-	max-width: 675px;
-	text-align: right;
+    max-width: 675px;
+    text-align: right;
 }
 .intro-sec img {
-	border-radius: 50%;
-	max-width: 80%;
-	width: 280px;
-	height: auto;
-	margin: 2em auto 1em;
+    border-radius: 50%;
+    max-width: 80%;
+    width: 280px;
+    height: auto;
+    margin: 2em auto 1em;
 }
 @media screen and (max-width: 1200px) {
-	section {
-		padding: 2rem 1rem;
-	}
-	.intro-sec > div {
-		text-align: center;
-	}
+    section {
+        padding: 2rem 1rem;
+    }
+    .intro-sec > div {
+        text-align: center;
+    }
 }
 
 .headline {
-	font-weight: bold;
-	text-align: center;
-	text-transform: uppercase;
+    font-weight: bold;
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 3em;
 }
 
-.cards-container {
-  max-width: 20rem;
+.portfolio {
+    background-color: #eee;
+}
+.portfolio .centered {
+    margin: 0 auto;
+}
+@media screen and (min-width: 52em) {
+    .centered {
+        max-width: 52em;
+    }
+}
+@media screen and (min-width: 576px) {
+    .cards-container {
+        display: flex;
+        flex-flow: wrap;
+        justify-content: space-around;
+    }
+    .card {
+        flex: 0 1 calc(50% - 1em);
+        margin-bottom: 1em;
+    }
+}
+@media screen and (min-width: 992px) {
+    .card {
+        flex: 0 1 calc(33% - 0.6em);
+    }
+}
+.card {
+    display: flex;
+}
+.card a:hover {
+    text-decoration: none;
+    /*box-shadow: */
+}
+
+.contact {
+    background-color: #eee;
+}
+.info-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.info-wrapper .info {
+    flex: 0 1 calc(50% - 6em);
+    text-align: right;
 }
 
 /* Find src URL and add in correct social media icon. */
-ul {
-  list-style-type: none;
+.social {
+    flex: 0 1 calc(50% - 6em);
+    flex-wrap: wrap;
+    text-align: center;
 }
-.social li a:before {
+.social h4 {
+    margin: 0 auto 1em;
+}
+.social-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.social a {
+    flex: 0 0 auto;
+}
+.social a:before {
     font-family: 'Fontawesome';
     -webkit-font-smoothing: antialiased;
     content: '\f08e';
+    font-size: 4em;
 }
 
-.social li a[href*="facebook.com"]::before { content: '\f09a'; }
-.social li a[href*="github.com"]::before { content: '\f09b'; }
-.social li a[href*="linkedin.com"]::before { content: '\f0e1'; }
-.social li a[href*="twitter.com"]::before { content: '\f099'; }
+.social a[href*="facebook.com"]::before { content: '\f09a'; }
+.social a[href*="github.com"]::before { content: '\f09b'; }
+.social a[href*="linkedin.com"]::before { content: '\f0e1'; }
+.social a[href*="twitter.com"]::before { content: '\f099'; }
+
+footer {
+    margin: 0 0;
+    padding: 1em 0;
+    text-align: center;
+    color: #fff;
+}
