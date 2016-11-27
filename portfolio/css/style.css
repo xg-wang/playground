@@ -67,12 +67,18 @@ section {
         max-width: 52em;
     }
 }
+
+.cards-container {
+    display: flex;
+    flex-flow: wrap;
+    justify-content: space-around;
+}
+.card {
+    display: flex;
+    flex: 0 1 calc(100% - 2em);
+    transition: flex .5s ease;
+}
 @media screen and (min-width: 576px) {
-    .cards-container {
-        display: flex;
-        flex-flow: wrap;
-        justify-content: space-around;
-    }
     .card {
         flex: 0 1 calc(50% - 1em);
         margin-bottom: 1em;
@@ -82,9 +88,6 @@ section {
     .card {
         flex: 0 1 calc(33% - 0.6em);
     }
-}
-.card {
-    display: flex;
 }
 .card a:hover {
     text-decoration: none;
