@@ -20,7 +20,7 @@ section {
     max-width: 1024px;
 }
 
-.intro-sec {
+#intro-sec {
     padding-top: 8rem;
     background-color: #aaa;
     display: flex;
@@ -29,11 +29,11 @@ section {
     align-items: center;
     text-align: right;
 }
-.intro-sec > div {
+#intro-sec > div {
     max-width: 675px;
     text-align: right;
 }
-.intro-sec img {
+#intro-sec img {
     border-radius: 50%;
     max-width: 80%;
     width: 280px;
@@ -44,7 +44,7 @@ section {
     section {
         padding: 2rem 1rem;
     }
-    .intro-sec > div {
+    #intro-sec > div {
         text-align: center;
     }
 }
@@ -56,10 +56,10 @@ section {
     margin-top: 3em;
 }
 
-.portfolio {
+#portfolio {
     background-color: #eee;
 }
-.portfolio .centered {
+#portfolio .centered {
     margin: 0 auto;
 }
 @media screen and (min-width: 52em) {
@@ -94,7 +94,7 @@ section {
     box-shadow: 2px 2px 4px hsl(0, 0%, 70%);
 }
 
-.contact {
+#contact {
     background-color: #eee;
 }
 .info-wrapper {
