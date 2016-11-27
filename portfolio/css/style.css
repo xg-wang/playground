@@ -88,7 +88,7 @@ section {
 }
 .card a:hover {
     text-decoration: none;
-    /*box-shadow: */
+    box-shadow: 2px 2px 4px hsl(0, 0%, 70%);
 }
 
 .contact {
@@ -135,8 +135,9 @@ section {
 .social a[href*="twitter.com"]::before { content: '\f099'; }
 
 footer {
+    font-size: 0.7em;
     margin: 0 0;
-    padding: 1em 0;
+    padding: 1rem 0;
     text-align: center;
     color: #fff;
 }
