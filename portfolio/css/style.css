@@ -76,7 +76,7 @@ section {
 .card {
     display: flex;
     flex: 0 1 calc(100% - 2em);
-    transition: flex .5s ease;
+    transition: flex .5s ease-in-out;
 }
 @media screen and (min-width: 576px) {
     .card {
@@ -88,6 +88,9 @@ section {
     .card {
         flex: 0 1 calc(33% - 0.6em);
     }
+}
+.card a {
+    transition: box-shadow .4s ease-in-out;
 }
 .card a:hover {
     text-decoration: none;
@@ -125,11 +128,19 @@ section {
 .social a {
     flex: 0 0 auto;
 }
-.social a:before {
+.social-buttons a::before {
     font-family: 'Fontawesome';
     -webkit-font-smoothing: antialiased;
     content: '\f08e';
-    font-size: 4em;
+    font-size: 3em;
+    color: #888;
+    transition: color .4s ease-in-out;
+}
+.social-buttons a:hover::before {
+    color: #0275d8;
+}
+.social-buttons a:hover {
+    text-decoration: none;
 }
 
 .social a[href*="facebook.com"]::before { content: '\f09a'; }
